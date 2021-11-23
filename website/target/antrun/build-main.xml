@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <taskdef resource="net/sf/antcontrib/antlib.xml"/>
+  <for param="asciidoc-file">
+    <path>
+      <fileset casesensitive="yes" dir="C:\devonfw\workspaces\website\website/components/">
+        <exclude name="**/target/**"/>
+        <include name="**/*.asciidoc"/>
+      </fileset>
+    </path>
+    <sequential>
+      <var name="path_to_copy_to" unset="true"/>
+      <var name="file_path" unset="true"/>
+      <property name="path_to_copy_to" value=""/>
+      <dirname file="@{asciidoc-file}" property="file_path"/>
+      <script language="beanshell">String path = project.getProperty(&quot;file_path&quot;).replace(&quot;\\&quot;, &quot;/&quot;);
+                      String source = project.getProperty(&quot;docgen.asciidoc.source&quot;).replace(&quot;\\&quot;, &quot;/&quot;);
+                      path = path.replace(source, &quot;&quot;);
+                      project.setProperty(&quot;path_to_copy_to&quot;, path);</script>
+      <var name="filename" unset="true"/>
+      <basename file="@{asciidoc-file}" property="filename"/>
+      <copy file="@{asciidoc-file}" todir="C:\devonfw\workspaces\website\website/target/asciidoc/components/${path_to_copy_to}" encoding="UTF-8" outputencoding="UTF-8" verbose="true">
+        <filterchain>
+          <tokenfilter>
+            <linetokenizer/>
+            <replaceregex pattern="\[\[" replace="[[${filename}_" flags="g"/>
+            <replaceregex pattern="^(==+) (.*)" replace="[[${filename}_\2]]&#10;\1 \2" flags="g"/>
+            <replaceregex pattern="include\:\:(.*)\[" replace="include::\1.asciidoc[" flags="g"/>
+            <replaceregex pattern="include\:\:(.*)((\.adoc)|(\.asc)|(\.asciidoc))(\.asciidoc)\[" replace="include::\1\2[" flags="g"/>
+            <replaceregex pattern="xref:([^\[]*)\[\]" replace="xref:${filename}_\1[\1]" flags="g"/>
+            <replaceregex pattern="xref:([^\[]*)\[" replace="xref:${filename}_\1[" flags="g"/>
+            <replaceregex pattern="link:([^#:]*)\[\]" replace="link:\1[\1]" flags="g"/>
+            <replaceregex pattern="link:([^#:.\[]*)(#|\[)" replace="xref:\1.asciidoc\2" flags="g"/>
+            <replaceregex pattern="link:([^#:]*)\[" replace="xref:\1[" flags="g"/>
+            <replaceregex pattern="link:([^#:]*)#([^\[]*)\[\]" replace="xref:\1_\2[\1#\2]" flags="g"/>
+            <replaceregex pattern="link:([^#:]*)#([^\[]*)\[" replace="xref:\1_\2[" flags="g"/>
+            <scriptfilter setbeans="true" language="beanshell" byline="true">String text = self.getToken();
+                            if (text.startsWith(&quot;[[&quot;)) {
+                              int end = text.indexOf(&quot;]]&quot;);
+                              if (end &gt; 0) {
+                                String content = text.substring(2, end).trim().toLowerCase().replaceAll(&quot;[?¿!¡&apos;:()&amp;/“”`\&quot;\\[\\]#]&quot;, &quot;&quot;).replace(&apos; &apos;, &apos;-&apos;);
+                                self.setToken(&quot;[[&quot; + content + &quot;]]&quot; + text.substring(end + 2));
+                              }
+                            }</scriptfilter>
+            <replaceregex pattern="^(=) " replace="[[${filename}]]&#10;\1 " flags="g"/>
+            <replaceregex pattern="\$\{project\.version\}" replace="dev-SNAPSHOT" flags="g"/>
+            <replaceregex pattern="\$\{project\.artifactId\}" replace="website-pages" flags="g"/>
+            <replaceregex pattern="\$\{buildtime\}" replace="2021-11-23_15.04.09" flags="g"/>
+          </tokenfilter>
+        </filterchain>
+      </copy>
+    </sequential>
+  </for>
+  <copy todir="C:\devonfw\workspaces\website\website/target/asciidoc/components" encoding="UTF-8">
+    <path>
+      <fileset dir="C:\devonfw\workspaces\website\website/components/">
+        <exclude name="**/*.asciidoc"/>
+        <exclude name="**/target/**"/>
+        <exclude name="**/pom.xml"/>
+        <exclude name="**/images/**/*"/>
+        <exclude name="**/.repository/**"/>
+      </fileset>
+    </path>
+  </copy>
+  <for param="receiveddir" list="images">
+    <sequential>
+      <for param="imagesdir">
+        <path>
+          <dirset casesensitive="yes" dir="C:\devonfw\workspaces\website\website/components/">
+            <include name="**/@{receiveddir}/**"/>
+          </dirset>
+        </path>
+        <sequential>
+          <copy todir="C:\devonfw\workspaces\website\website/target/asciidoc/components/@{receiveddir}">
+            <path>
+              <fileset dir="@{imagesdir}">
+                <include name="**/*"/>
+              </fileset>
+            </path>
+          </copy>
+        </sequential>
+      </for>
+    </sequential>
+  </for>
+</target>
+</project>

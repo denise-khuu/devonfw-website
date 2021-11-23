@@ -1,0 +1,33 @@
+= KAFKA
+
+[.directory]
+== Kafka
+
+[.links-to-files]
+== Related
+
+[.common-links]
+=== Links
+
+[.devon4j-links]
+=== devon4j Links
+
+<</website/pages/docs/devon4j.asciidoc_guides.html#guide-kafka.asciidoc, Kafka Guide>>
+
+[.devon4net-links]
+=== devon4net Links
+
+[.devon4ng-links]
+=== devon4ng Links
+
+[.devon4node-links]
+=== devon4node Links
+
+[.katacoda-links-small]
+=== Katacoda Links
+
+https://katacoda.com/devonfw/scenarios/devon4j-kafka[devon4j Kafka Tutorial]
+
+[.videos-links]
+=== Video Links
+

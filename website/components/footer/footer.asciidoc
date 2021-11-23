@@ -1,0 +1,34 @@
+:experimental:
+= Footer
+
+[.footerLinks]
+--
+
+[.linklist]
+About::
+  * <</website/pages/docs/getting-started.asciidoc_introduction.html#,About devonfw>>
+  * <</website/pages/docs/getting-started.asciidoc_introduction.html#introduction-why-should-i-use-devonfw.asciidoc,Features>>
+  * <</website/pages/docs/getting-started.asciidoc_further-information.html#,Technology Stack>>
+
+[.linklist]
+Explore::
+  * <</website/pages/docs/getting-started.asciidoc.html#,Getting started>>
+  * <</website/pages/docs/devon4j.asciidoc_architecture.html#,Architecture>>
+  * <</website/pages/resources/resources.html#,Resources>>
+
+[.linklist]
+Docs::
+  * <</website/pages/docs/devonfw-ide-introduction.asciidoc.html#,User guide>>
+  * <</website/pages/docs/master-release-notes.asciidoc.html#,Releases information>>
+  * <</website/pages/docs/master.html#,Wiki>>
+  
+[.linklist]
+Community::
+  * https://github.com/orgs/devonfw/people[Contributors]
+  * https://github.com/devonfw/devonfw.github.io/blob/develop/README.asciidoc[Website Contribution]
+
+--
+
+[.footerFooter]
+  * https://devonfw.com/website/pages/docs/devonfw-ide-support.asciidoc.html#LICENSE.asciidoc[Terms of Use]
+  * https://github.com/devonfw[Support]

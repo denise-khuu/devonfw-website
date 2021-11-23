@@ -1,0 +1,32 @@
+= PROGRAMMING LANGUAGE
+
+[.directory]
+== Programming Language
+
+[.links-to-files]
+== Related
+
+<<java.html#, Java>>
+
+<<net.html#, .Net>>
+
+<<javascript.html#, JavaScript>>
+
+[.common-links]
+=== Links
+
+[.devon4j-links]
+=== devon4j Links
+
+[.devon4net-links]
+=== devon4net Links
+
+[.devon4ng-links]
+=== devon4ng Links
+
+[.devon4node-links]
+=== devon4node Links
+
+[.videos-links]
+=== Video Links
+

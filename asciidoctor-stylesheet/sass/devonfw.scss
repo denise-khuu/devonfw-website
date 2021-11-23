@@ -1,0 +1,303 @@
+@import 'settings/devonfw';
+@import 'components/navbar';
+@import 'components/asciidoc';
+@import 'components/awesome-icons';
+@import 'pages/welcome.scss';
+@import 'pages/page-results.scss';
+@import 'pages/resources';
+@import 'pages/community';
+@import 'pages/docs';
+
+
+body {
+  overflow-x: hidden;
+}
+
+
+* { 
+  font-family: ubuntu;
+}
+pre * {
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+}
+
+
+.sect1 > *:first-child {
+  margin-bottom: 2rem;
+}
+
+/***************************** Utilities *******************************/
+.hidden {
+  display: none;
+}
+
+.visible {
+  visibility: visible;
+}
+
+hr {
+  display: none;
+}
+
+.search-results hr {
+  display: block;
+}
+
+.bg-custom-blue {
+  background-color: #4cbdec;
+}
+
+@media (max-width: 768px) {
+  .website-navbar > ul {
+    z-index: 25;
+    background-color: #4cbdec;
+    position: absolute;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    width: 75%;
+    height: 100vh;
+    align-items: start;
+    visibility: hidden;
+
+    & > li:first-child {
+      margin-left: 60px;
+      margin-top: 0;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      visibility: visible;
+    }
+  }
+}
+
+.menu-button {
+  z-index: 30;
+  background: transparent;
+  border: none;
+}
+
+.form-inline {
+  z-index: 30;
+  margin-left: auto;
+  margin-right: 0.5rem;
+}
+
+.custom-blue {
+  color: #4cbdec;
+}
+
+a {
+  word-break: break-all;
+  color: #4cbdec;
+  text-decoration: none;
+  line-height: inherit;
+}
+
+.text-underline {
+  text-decoration: underline;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.bg-ligthgray {
+  background-color: #f0f0f0;
+}
+
+.custom-col {
+  display: flex;
+  flex-direction: column;
+}
+
+div.hr-2 {
+  height: 2px;
+}
+
+div.hr-3 {
+  height: 3px;
+}
+
+table {
+  text-align: left;
+  border: none;
+  margin-top: 4.5em;
+  display: block;
+  overflow-x: auto;
+}
+
+table.tableblock {
+  margin-top: 1.25em;
+  margin-bottom: 4.5em;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.overflow-x-auto {
+  overflow-x: auto;
+}
+
+.z-100 {
+  z-index: 100;
+}
+
+.z-50 {
+  z-index: 50;
+}
+
+.reset-bg-color {
+  background-color: #fff;
+}
+
+.custom-grey {
+  color: rgba(43, 41, 45, 0.6);
+}
+
+.literalblock,
+.listingblock {
+  pre {
+    text-align: left;
+    background: $pre-bg;
+    
+
+  }
+}
+
+/***** Buttons ******/
+
+.btn * {
+  font-weight: bold;
+  text-decoration: none;
+  width: fit-content;
+}
+
+.btn a:hover {
+  text-decoration: none;
+}
+
+.btn.blue-button {
+  background-color: #4cbdec;
+  border-color: #4cbdec;
+  color: white;
+
+
+  & * {
+    color: white;
+  }
+
+  & p {
+    margin: 0;
+
+  }
+}
+
+.btn.white-button {
+  background-color: #fff;
+  border-color: lightgrey;
+  color: #4cbdec;
+
+
+  & * {
+    color: #4cbdec;
+  }
+
+  & p {
+    margin: 0;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .sect1 {
+    padding-bottom: 3rem;
+  }
+}
+
+#content {
+  max-width: 90em;
+  padding-left: 1em;
+  padding-right: 1em;
+
+}
+
+.white-button-overlay {
+	visibility: hidden;
+	min-height: 100px;
+	display: inline-block;
+	color: white;
+	text-align: center;
+	vertical-align: middle;
+	background-color: #4cbdec;
+	border-color: #4cbdec;
+	border: 1px solid transparent;
+	padding: .375rem .75rem;
+	font-size: 1rem;
+	line-height: 1.5;
+	border-radius: .25rem;
+	margin-top: 0 !important;
+	&:hover {
+		visibility: visible;
+	}
+	ul {
+		margin-left: 0;
+		margin-bottom: 0;
+		* {
+			&:nth-child(odd) {
+				font-weight: bolder;
+			}
+			&:nth-child(even) {
+				font-weight: lighter;
+				background-color: white;
+				color: #4cbdec;
+				padding: 5px;
+				border-radius: .25rem;
+			}
+		}
+	}
+	li {
+		display: block;
+		text-align: left;
+	}
+}
+
+.overlay-trigger {
+	&:hover {
+		~ {
+			.white-button-overlay {
+				visibility: visible;
+			}
+		}
+	}
+}
+
+#website-navbar a.active:not(.image) {
+  padding-bottom: 5px;
+  border-bottom-color: #fff;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+}
+
+.internal {
+  display: none;
+}
+
+.internal-active {
+  display: flex;
+  .info{
+    margin-right: 10px;
+    border-right: solid #4cbdec 5px;
+    padding-right: 5px;
+    display: flex;
+    flex-direction: column;
+    .infoText{
+      text-align: center;
+    }
+  }
+  .right{
+    .message{
+      color: lightgray;
+    }
+  }
+}

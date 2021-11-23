@@ -1,0 +1,28 @@
+= .NET CORE
+
+[.directory]
+== .NET Core
+
+[.links-to-files]
+== Related
+
+[.common-links]
+=== Links
+
+[.devon4j-links]
+=== devon4j Links
+
+[.devon4net-links]
+=== devon4net Links
+
+<</website/pages/docs/master-devon4net.asciidoc_user-guide.html#userguide.asciidoc_navythe-package, devon4net User Guide>>
+
+[.devon4ng-links]
+=== devon4ng Links
+
+[.devon4node-links]
+=== devon4node Links
+
+[.videos-links]
+=== Video Links
+

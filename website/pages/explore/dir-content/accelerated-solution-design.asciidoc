@@ -1,0 +1,28 @@
+= ACCELERATED SOLUTION DESIGN
+
+[.directory]
+== Accelerated Solution Design
+
+[.links-to-files]
+== Related
+
+[.common-links]
+=== Links
+
+https://github.com/devonfw/accelerated-solution-design/blob/master/design-guidelines/Accelerated_Solution_Design.adoc[Accelerated Solution Design]
+
+[.devon4j-links]
+=== devon4j Links
+
+[.devon4net-links]
+=== devon4net Links
+
+[.devon4ng-links]
+=== devon4ng Links
+
+[.devon4node-links]
+=== devon4node Links
+
+[.videos-links]
+=== Video Links
+

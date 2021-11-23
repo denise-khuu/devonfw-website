@@ -1,0 +1,230 @@
+<%#encoding:UTF-8%>
+<%
+require 'nokogiri' 
+%><!DOCTYPE html>
+<html<%= (attr? :nolang) ? nil : %( lang="#{attr :lang, 'en'}") %>>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<%= attr :encoding %>">
+<meta name="generator" content="Asciidoctor <%= attr 'asciidoctor-version' %>">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><%
+[:description, :keywords, :author, :copyright].each do |key|
+  if attr? key %>
+<meta name="<%= key %>" content="<%= attr key %>"><%
+  end
+end %>
+
+<!-- ******** SOCIAL MEDIA META ********** -->
+
+<meta name="title" property="og:title" content="devonfw website">
+<meta property="og:type" content="website">
+<meta name="image" property="og:image" content="https://devonfw.com/images/devonfwwebsite.png">
+<meta name="description" property="og:description" content="devonfw is the standard open source software development platform; Serving the full Software Delivery Life Cycle.">
+<meta property="og:url" content="https://devonfw.com/index.html">
+
+<meta name="twitter:title" content="devonfw website">
+<meta name="twitter:description" content="devonfw is the standard open source software development platform; Serving the full Software Delivery Life Cycle.">
+<meta name="twitter:image" content="https://devonfw.com/images/devonfwwebsite.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- ************************************* -->
+
+
+<title><%= doctitle(:sanitize => true) || (attr 'untitled-label') %></title>
+<!-- devonfw website stylesheet -->
+<link rel="stylesheet" type="text/css" href="/devonfw.css">
+<!-- Ubuntu Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap" rel="stylesheet">
+<!-- Lunr -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.6/lunr.min.js" integrity="sha256-M/Awbb/BYh+Rh0aGjpQid26p1b2OBsrk2k9yAvQxPV0=" crossorigin="anonymous"></script>
+<!-- JQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><%
+if attr? :icons, 'font'
+  if !(attr 'iconfont-remote', '').nil? %>
+<link rel="stylesheet" href="<%= attr 'iconfont-cdn', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css' %>"><%
+  else %>
+<link rel="stylesheet" href="<%= normalize_web_path(%(#{attr 'iconfont-name', 'font-awesome'}.css), (attr :stylesdir, '')) %>"><%
+  end
+end
+case attr 'source-highlighter'
+when 'coderay'
+  if (attr 'coderay-css', 'class') == 'class'
+    if @safe >= Asciidoctor::SafeMode::SECURE || (attr? :linkcss) %>
+<link rel="stylesheet" href="<%= normalize_web_path('asciidoctor-coderay.css', (attr :stylesdir, '')) %>"><%
+    else %>
+<%= Asciidoctor::Stylesheets.embed_coderay_stylesheet %>
+<%
+    end
+  end
+when 'pygments'
+  if (attr 'pygments-css', 'class') == 'class'
+    if @safe >= Asciidoctor::SafeMode::SECURE || (attr? :linkcss) %>
+<link rel="stylesheet" href="<%= normalize_web_path('asciidoctor-pygments.css', (attr :stylesdir, '')) %>"><%
+    else %>
+<%= Asciidoctor::Stylesheets.embed_pygments_stylesheet(attr 'pygments-style') %>
+<%
+    end
+  end
+when 'highlightjs' %>
+<link rel="stylesheet" href="<%= attr 'highlightjsdir', 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.4' %>/styles/<%= attr 'highlightjs-theme', 'googlecode' %>.min.css">
+<script src="<%= attr 'highlightjsdir', 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.4' %>/highlight.min.js"></script>
+<script src="<%= attr 'highlightjsdir', 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.4' %>/lang/common.min.js"></script>
+<script>hljs.initHighlightingOnLoad()</script><%
+when 'prettify' %>
+<link rel="stylesheet" href="<%= attr 'prettifydir', 'https://cdnjs.cloudflare.com/ajax/libs/prettify/r298' %>/<%= attr 'prettify-theme', 'prettify' %>.min.css">
+<script src="<%= attr 'prettifydir', 'https://cdnjs.cloudflare.com/ajax/libs/prettify/r298' %>/prettify.min.js"></script>
+<script>document.addEventListener('DOMContentLoaded', prettyPrint)</script><%
+end
+if attr? 'math' %>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [<%= Asciidoctor::INLINE_MATH_DELIMITERS[:latexmath] %>],
+    displayMath: [<%= Asciidoctor::BLOCK_MATH_DELIMITERS[:latexmath] %>],
+    ignoreClass: 'nomath|nolatexmath'
+  },
+  asciimath2jax: {
+    delimiters: [<%= Asciidoctor::BLOCK_MATH_DELIMITERS[:asciimath] %>],
+    ignoreClass: 'nomath|noasciimath'
+  }
+});
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+<script>document.addEventListener('DOMContentLoaded', MathJax.Hub.TypeSet)</script><%
+end
+%><%= (docinfo_content = docinfo).empty? ? nil : %(
+#{docinfo_content}) %>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+<script src="/website/components/header/search-engine/bundle.js"></script>
+
+<!-- ************** Google analytics ************ -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-151636804-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-151636804-1');
+</script>
+
+<!-- ******************************************** -->
+
+</head>
+<body<%= @id && %( id="#{@id}") %> class="<%= [(attr :doctype)].compact * ' ' %>"<%= (attr? 'max-width') ? %( style="max-width: #{attr 'max-width'};") : nil %>><%
+unless noheader %>
+<div id="website-navbar" class="website-navbar">
+<button id="menu-button" class="menu-button">
+  <img src="/images/menu-button.svg" width="32px" height="32px" alt=""/>
+</button>
+<%= Nokogiri::HTML(open(normalize_system_path('header.html', '../../target/generated-docs/website/_includes/header/'))).at_css('div.website-navbar').inner_html %>
+<form class="form-inline">
+  <div class="search-bar">
+    <input
+      id="search-field"
+      type="search"
+      class="form-control mr-sm-2"
+      placeholder="Search by keyword(s)..."
+      aria-label="Search"
+      style="height: auto;"
+      autocomplete="off"/>
+    <div class="sb-res-pos px-4">
+      <div id="click-outside" class="click-outside z-50 hidden"></div>
+      <div class="col rounded px-0 border z-100 bg-white hidden search-bar-results" id="search-results-box">
+      </div>
+    </div>
+  </div>
+</form>
+<a class="navbar-github text-white" href="https://github.com/devonfw/">
+  <img src="/images/github-mark.png" width=auto height=auto alt="">
+</a></div>
+<div id="sidebar" class="wiki-sidebar"></div>
+<%
+end %>
+<div id="content" class="mt-4 mt-sm-5">
+<%= content %>
+</div><%
+unless !footnotes? || attr?(:nofootnotes) %>
+<div id="footnotes">
+<hr><%
+  footnotes.each do |fn| %>
+<div class="footnote" id="_footnote_<%= fn.index %>">
+<a href="#_footnoteref_<%= fn.index %>"><%= fn.index %></a>. <%= fn.text %>
+</div><%
+  end %>
+</div><%
+end %><%
+unless nofooter %>
+<div id="footer" class="footer"><%= Nokogiri::HTML(open(normalize_system_path('footer.html', '../../target/generated-docs/website/_includes/footer/'))).at_css('div#content').inner_html %></div>
+    <script>
+      let bb = document.getElementById('menu-button');
+      bb.addEventListener('click', function() {
+        document.querySelector('.website-navbar ul').classList.toggle('visible');
+        console.log(document.querySelector('.website-navbar ul'))
+      })
+    </script>
+    <script type="module">
+      import { EditLinksModule } from '/website/shared/editlinks.js';
+
+      let alwaysVisible = true;
+      if(document.location.pathname.endsWith("pages/welcome/welcome.html")) {
+        alwaysVisible = false;
+      }
+      EditLinksModule.addEditLinks(alwaysVisible);
+    </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+<div class="footnote"><sub>
+<%if attr? :revnumber %>
+<%= %(#{attr 'version-label'} #{attr :revnumber}) %><br><%
+end
+if attr? 'last-update-label' %>
+<%= %(#{attr 'last-update-label'} #{attr :docdatetime}) %><%
+end %><%= (docinfo_content = (docinfo :footer)).empty? ? nil : %(
+#{docinfo_content}) %>
+</sub></div>
+</div>
+</div><%
+end %>
+<script>
+  if(!document.location.pathname.endsWith("pages/welcome/welcome.html")) {
+    anchors.options.visible = 'always';
+  }
+  anchors.add();
+</script>
+<script>
+  var internalUrls = ["https://cginternal.devonfw.com/websitesnippets/"];
+  $(".internal").each(function(){
+    internalUrls.forEach((internalUrl, index) => {
+      $.ajax({url: internalUrl + $(this).text() + "/index.html" })
+      .then(r => {
+        var leftDiv = $('<div class="info"><span class="infoText">Internal</span><img class="infoImage" src="' + internalUrl + 'logo.png"/></div>');
+        var rightFirstDiv = $('<div class="message">This is only visible inside of the corporate network.</div>');
+        var rightLastDiv = $('<div class="content"></div>');
+        rightLastDiv.html(r);
+        var rightDiv = $('<div class="right"></div>');
+        rightDiv.append(rightFirstDiv);
+        rightDiv.append(rightLastDiv);
+        $(this).html(leftDiv);
+        $(this).append(rightDiv);
+        $(this).addClass("internal-active");
+        $(this).removeClass("internal");
+      })
+    });
+	});
+</script>
+</body>
+</html>

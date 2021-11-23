@@ -1,0 +1,32 @@
+= COLLABORATION
+
+[.directory]
+== Collaboration
+
+[.links-to-files]
+== Related
+
+<<github.html#, GitHub>>
+
+<<microsoft-teams.html#, Microsoft Teams>>
+
+<<devonfw-shop-floor.html#, devonfw Shop Floor>>
+
+[.common-links]
+=== Links
+
+[.devon4j-links]
+=== devon4j Links
+
+[.devon4net-links]
+=== devon4net Links
+
+[.devon4ng-links]
+=== devon4ng Links
+
+[.devon4node-links]
+=== devon4node Links
+
+[.videos-links]
+=== Video Links
+

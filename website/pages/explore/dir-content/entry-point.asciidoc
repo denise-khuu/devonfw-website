@@ -1,0 +1,38 @@
+= ENTRY POINT FILE
+
+[.directory]
+== Entry point
+
+[.links-to-files]
+== Related
+
+<<way-of-working.html#, Way of Working>>
+
+<<macro-architecture.html#, Macro Achitecture>>
+
+<<micro-architecture.html#, Micro Achitecture>>
+
+<<operational-architecture.html#, Operational Architecture>>
+
+<<accelerators.html#, Accelerators>>
+
+<<samples.html#, Samples>>
+
+[.common-links]
+=== Links
+
+[.devon4j-links]
+=== devon4j Links
+
+[.devon4net-links]
+=== devon4net Links
+
+[.devon4ng-links]
+=== devon4ng Links
+
+[.devon4node-links]
+=== devon4node Links
+
+[.videos-links]
+=== Video Links
+

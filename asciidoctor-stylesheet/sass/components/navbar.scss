@@ -1,0 +1,79 @@
+@import "../../node_modules/skeleton-screen-css/dist/index.scss";
+
+.website-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 2000;
+
+  .sb-res-pos {
+    position: absolute;
+    right: 0;
+  }
+
+  .click-outside {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: transparent !important;
+    top: 0;
+    left: 0;
+  }
+
+  .search-bar-results {
+    min-width: 300px;
+    font-family: "Ubuntu", "Lucida Grande", Georgia, Verdana, "Helvetica",
+      Helvetica, Arial, sans-serif;
+    #recommendations {
+      padding: 16px;
+    }
+    #results {
+      padding: 16px;
+      a {
+        color: #4cbdec;
+      }
+      .breadcrumbs {
+        font-size: 10px;
+      }
+      .highlightText {
+        font-weight: bold;
+      }
+      .snippet{
+        font-size: 10px;
+      }
+
+      .result{
+        margin-bottom: 10px;
+      }
+    }
+    .recommendation {
+      // padding-left: 15px;
+      // padding-right: 15px;
+      &.highlight {
+        background-color: lightgray;
+      }
+      .highlightText {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.website-navbar .search-bar .search-bar-results::after {
+  content: " ";
+  position: absolute;
+  bottom: 100%;
+  right: 80px;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent white transparent;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  scroll-margin-top: 55px;
+}

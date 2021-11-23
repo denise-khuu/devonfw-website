@@ -1,0 +1,32 @@
+= CI CD PIPELINE
+
+[.directory]
+== CI CD Pipeline
+
+[.links-to-files]
+== Related
+
+<<jenkins.html#, Jenkins>>
+
+<<ci-cd.html#, CI/CD>>
+
+[.common-links]
+=== Links
+
+[.devon4j-links]
+=== devon4j Links
+
+[.devon4net-links]
+=== devon4net Links
+
+[.devon4ng-links]
+=== devon4ng Links
+
+<</website/pages/docs/master-devon4ng.asciidoc.html#, devon4ng>>
+
+[.devon4node-links]
+=== devon4node Links
+
+[.videos-links]
+=== Video Links
+

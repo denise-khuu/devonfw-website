@@ -1,0 +1,40 @@
+.search-results {
+  .snippet .text {
+      white-space: pre-wrap;
+  }
+
+  span.marked-word {
+      text-decoration: underline;
+  }
+}
+
+.collapseModule [id^="collapseResult"].collapse:not(.show) {
+display: block;
+/* height = lineheight * no of lines to display */
+height: 6em;
+overflow: hidden;
+}
+
+.collapseModule [id^="collapseResult"].collapsing {
+height: 6em;
+}
+
+.srpg-title {
+border: 1px solid rgba(76, 189, 236, 0.2);
+background-color: #4cbdec;
+color: #fff;
+}
+
+.srpg-content {
+border-left: 1px solid rgba(76, 189, 236, 0.2);
+border-right: 1px solid rgba(76, 189, 236, 0.2);
+border-bottom: 1px solid rgba(76, 189, 236, 0.2);
+
+a {
+  color: #4cbdec;  
+
+  &:hover, &:visited {
+    color: #4cbdec;  
+  }
+}
+}

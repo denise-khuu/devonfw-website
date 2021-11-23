@@ -1,0 +1,96 @@
+:experimental:
+= devonfw
+
+[.bg-image]
+image::/images/delivery-lifecycle.png[]
+
+[.CTA]
+--
+[discrete]
+== The standard open source software development platform
+
+[discrete]
+=== Serving the full Software Delivery Life Cycle
+
+[.btn.blue-button]
+https://devonfw.com/website/pages/docs/getting-started.asciidoc.html[GET STARTED]
+
+[.btn.white-button.overlay-trigger]
+https://devonfw.com/website/pages/docs/devonfw-ide-introduction.asciidoc.html#setup.asciidoc[DOWNLOAD]
+
+[.btn.white-button]
+https://github.com/devonfw/dashboard/releases/download/v1.0.0-beta.1/devonfw-dashboard.v1.0.0-beta.1.exe[DOWNLOAD DASHBOARD (beta)]
+
+[.white-button-overlay]
+  * Linux/macOS
+  * wget -c 'https://repository.sonatype.org/service/local/artifact/maven/redirect?r=central-proxy&g=com.devonfw.tools.ide&a=devonfw-ide-scripts&v=LATEST&p=tar.gz' -O - | tar -xz && bash setup
+  * Windows
+  * Invoke-WebRequest -OutFile devonfw-ide-scripts.tar.gz 'https://repository.sonatype.org/service/local/artifact/maven/redirect?r=central-proxy&g=com.devonfw.tools.ide&a=devonfw-ide-scripts&v=LATEST&p=tar.gz'; tar -xvzf .\devonfw-ide-scripts.tar.gz; .\setup.bat
+
+--
+
+[.devonfw-intro]
+What is devonfw?::
+
+[.devonfw-intro-content]
+--
+
+[.intro-paragraph]
+Software achitecture blueprint::
+  * devonfw specifies a standardized open source architecture blueprint for state of the art cloud native (micro-) services and multi-platform rich client applications based on open source best-of-breed technology stacks. 
+
+[.intro-paragraph]
+Source of Knowledge::
+  * Moreover, devonfw serves as a knowledge base for industry-proven best practices and mature naming/coding conventions enabling project speed-up and increase of software quality by available blueprints, code generators, an devonfw architecture compliance checker, and much more.
+
+[.learn-more]
+<</website/pages/docs/introduction-what-is-devonfw.asciidoc.html#, Learn more>>
+
+[.devon-intro-image]
+image:/images/devon_intro_image.png[]
+
+--
+
+[.cards]
+--
+
+[.devonfw-diff]
+What make us different::
+
+[.custom-card]
+* image:/images/icons8-active_directory.png[]
+  ** Architecture flexibility
+  ** Tailor architecture to your project using our blueprints
+  ** <</website/pages/docs/release-notes-version-2.3.asciidoc.html#release-notes-version-2.3.asciidoc_support-for-microservices, Learn more>> 
+
+[.custom-card]
+* image:/images/icons8-experience_skill.png[]
+  ** Source of Knowledge
+  ** Interactive tutorials and guides in the daily process of your project based on hundreds of successfull projects worldwide.
+  ** <</website/pages/docs/master-release-notes.asciidoc.html#, Learn more>>
+
+[.custom-card]
+* image:/images/icons8-licence.png[]
+  ** No license traps
+  ** Open source, so you don't need to fear vendor lockin and license traps.
+  ** <</website/pages/docs/devonfw-ide-support.asciidoc.html#LICENSE.asciidoc, Learn more>>
+
+[.custom-card]
+* image:/images/icons8-teamwork.png[]
+  ** Support & Community
+  ** Large communitity of experts, helping you overcome obstacles in your project.
+  ** https://github.com/orgs/devonfw/people[Learn more]
+
+[.custom-card]
+* image:/images/icons8-Dotted-Increase.png[]
+  ** Constantly evolving 
+  ** devonfw is constantly evolving and actively updated to meet your business needs.
+  ** <</website/pages/docs/getting-started.asciidoc_further-information.html#, Learn more>>
+
+[.custom-card]
+* image:/images/icons8-product_documents.png[]
+  ** Rich documentation
+  ** Online documentation with examples, user guides and step by step tutorials.
+  ** <</website/pages/docs/master.html#, Learn more>>
+
+--

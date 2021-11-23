@@ -1,0 +1,38 @@
+= DEVONFW-SHOP-FLOOR
+
+[.directory]
+== devonfw-shop-floor
+
+devonfw shop floor is a platform to industrialize continuous delivery and continuous integration processes.
+
+devonfw shop floor is a set of documentation, tools and methodologies used to configure the provisioning, development and uat environments used in your projects. devonfw shop floor allows the administrators of those environments to apply CI/CD operations and enables automated application deployment.
+
+devonfw shop floor is mainly oriented to configure the provisioning environment provided by Production Line and deploy applications on an OpenShift cluster. In the cases where Production Line or OpenShift cluster are not available, there will be alternatives to achieve similar goals.
+
+The devonfw shop floor 4 OpenShift is a solution based on the experience of priming devonfw for OpenShift by RedHat.
+
+[.links-to-files]
+== Related
+
+[.common-links]
+=== Links
+
+<</website/pages/docs/master-devonfw-shop-floor.asciidoc.html#, devonfw shop-floor>>
+
+[.devon4j-links]
+=== devon4j Links
+
+[.devon4net-links]
+=== devon4net Links
+
+[.devon4ng-links]
+=== devon4ng Links
+
+[.devon4node-links]
+=== devon4node Links
+
+[.videos-links]
+=== Video Links
+
+https://www.youtube.com/watch?v=TS3o-I1MlPA[devonfw shop-floor]
+

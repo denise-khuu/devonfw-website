@@ -1,0 +1,32 @@
+= WORKING METHOD
+
+[.directory]
+== Working Method
+
+[.links-to-files]
+== Related
+
+<<agile.html#, Agile>>
+
+<<waterfall.html#, Waterfall>>
+
+<<testing-methodologies.html#, Testing Methodoligies>>
+
+[.common-links]
+=== Links
+
+[.devon4j-links]
+=== devon4j Links
+
+[.devon4net-links]
+=== devon4net Links
+
+[.devon4ng-links]
+=== devon4ng Links
+
+[.devon4node-links]
+=== devon4node Links
+
+[.videos-links]
+=== Video Links
+

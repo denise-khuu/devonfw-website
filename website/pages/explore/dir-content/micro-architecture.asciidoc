@@ -1,0 +1,30 @@
+= MICRO ARCHITECTURE
+
+[.directory]
+== Micro Architecture
+
+[.links-to-files]
+== Related
+
+<<architectural.html#, Architectural>>
+
+<<technological.html#, Technological>>
+
+[.common-links]
+=== Links
+
+[.devon4j-links]
+=== devon4j Links
+
+[.devon4net-links]
+=== devon4net Links
+
+[.devon4ng-links]
+=== devon4ng Links
+
+[.devon4node-links]
+=== devon4node Links
+
+[.videos-links]
+=== Video Links
+
