@@ -11,6 +11,6 @@ cd asciidoctor-stylesheet
 npm install
 cd ../
 
-./scripts/createOutput.sh
+
 
 mvn package 
