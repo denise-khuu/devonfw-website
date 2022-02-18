@@ -1,7 +1,6 @@
-Welcome to the reduced devonfw webpage compiler
+Welcome to the reduced devonfw webpage pipeline
 
+Copy the current wiki-tutorial folder into './wiki-tutorials'
 To compile the website run the bash file 
 `sh build.sh` 
 
-If you want to add a submodule to this compiler
-	you have to add the module to the pom
